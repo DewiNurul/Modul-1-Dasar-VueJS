@@ -1,0 +1,33 @@
+<!-- methods -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- library vue.js -->
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div id="app"> 
+        <!-- Elemen div#app akan dikontrol melalui instance dari Vue yang dideklarasi di dalam app.js -->
+        <p>{{ greet ("Dewi Nurul") }}</p>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        methods: {
+            greet: function(name){
+                return 'Good morning, ' + name;
+            }
+        }
+    })
+</script>
+
+<!-- property methods untuk mendeklarasi method baru -->
+<!-- Ketika method ‘greet’ dipanggil di dalam div#app, akan dikembalikan string ‘Good morning’. -->
+

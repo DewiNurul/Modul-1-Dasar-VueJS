@@ -1,0 +1,35 @@
+<!-- Loop -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- library vue.js -->
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div id="app"> 
+        <ol>
+            <li v-for="k in kelas">{{k}}</li>
+             <!-- directive v-for untuk melakukan loop terhadap array kelas dan menampilkan semua isinya.  -->
+
+             <!-- k adalah variabel yang menampung item-item kelas satu per satu. 
+             Oleh karena itu, untuk menampilkan setiap item, dipanggil variabel k menggunakan {{}} -->
+        </ol>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            "kelas" : ["XRPL1", "XRPL2", "XIRPL1", "XIRPL2", "XIIRPL1", "XIIRPL2"]
+            // property-nya adalah ‘kelas’,
+            // dengan value berupa array
+        }
+    })
+    
+</script>

@@ -1,0 +1,34 @@
+<!-- Condition -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- library vue.js -->
+    <title>Hello World</title>
+</head>
+
+<body>
+
+    <div id="app"> 
+        <p v-if="itemInStock > 10">{{itemInStock}} in stock</p>
+        <p v-else-if="itemInStock > 0"> Hurry up, only {{itemInStock}} items left</p>
+        <p v-else>Sorry, we are all out!</p>
+    </div>
+
+      <!-- Paragraf 1 ditampilkan jika nilai dari itemInStock > 10
+      Paragraf 2 ditampilkan jika kondisi sebelumnya tidak terpenuhi dan nilai dari itemInStock > 0
+      Paragraf 3 ditampilkan jika dua kondisi sebelumnya tidak terpenuhi -->
+
+</body>
+
+</html>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+           "itemInStock" : 10
+        }    
+    }) 
+</script>

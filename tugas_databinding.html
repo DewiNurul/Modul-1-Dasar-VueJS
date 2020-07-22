@@ -1,0 +1,29 @@
+<!-- Tugas Data Binding -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- library vue.js -->
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div id="app"> 
+        <!-- Elemen div#app akan dikontrol melalui instance dari Vue yang dideklarasi di dalam app.js -->
+      
+        <a v-bind:href="url">{{url}}</a>
+          <!-- :href = “url” juga bisa -->
+    </div>
+</body>
+
+</html>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            "url" : "https://smktelkom-mlg.sch.id/"
+        }
+    })    
+</script>

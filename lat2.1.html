@@ -1,0 +1,33 @@
+<!-- Data Binding -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- library vue.js -->
+    <title>Hello World</title>
+</head>
+
+<body>
+
+    <div id="app"> 
+        <!-- Elemen div#app akan dikontrol melalui instance dari Vue yang dideklarasi di dalam app.js -->
+      <img v-bind:src="url">
+      <!-- untuk menampilkannya, tambahkan tag <img>  -->
+      <!-- untuk menambahkan url gambar pada atribut src, maka digunakan v-bind  -->
+    </div>
+
+</body>
+</html>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            "url" : "https://www.fullstackpython.com/img/logos/vuejs-wide.png"
+            //URL tersebut adalah url menuju source dari gambar logo Vue JS yang akan ditampilkan di dalam div#app.
+        } 
+    })
+    //Setelah property el, tambahkan property data dengan value berupa object.
+    //Object tersebut memiliki property ‘url'
+</script>

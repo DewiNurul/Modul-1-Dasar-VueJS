@@ -1,0 +1,43 @@
+<!-- Membuat Component -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- library vue.js -->
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div id="app"> 
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+    </div>
+</body>
+
+</html>
+
+<script>
+    Vue.component('counter',  
+    //1
+    {
+        data: function (){
+            return{
+                count: 0 
+                //2
+            }
+        },
+        template: '<button @click="count++">{{count}}</button>' 
+        //3
+      }  
+    );
+    var app = new Vue({
+         el: "#app" });
+
+//  1) ‘counter’ ditambahkan sebagai nama tag dari custom element yang dibuat
+//  2) Data memiliki value berupa function yang mengembalikan object. 
+//      Di dalam object yang dikembalikan tersebut, terdapat satu property counter dengan nilai 0
+//        n.b: Perhatikan bahwa object tidak secara langsung dideklarasikan sebagai value dari property data seperti pada latihan sebelumnya.
+//  3) Pada template, dideklarasikan kode HTML yang akan di-render oleh browser ketika custom element dipanggil
+</script>

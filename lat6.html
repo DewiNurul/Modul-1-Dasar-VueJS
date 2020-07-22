@@ -1,0 +1,84 @@
+<!-- Event Handling -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- library vue.js -->
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div id="app"> 
+        <h3>Masukkan Nama Guru</h3>
+        <form v-on:submit.prevent>
+            <input type="text" name="namaSiswa" id="namaSiswa" @keyup.enter="simpan" v-model="guru">
+            <button type="button" @click="simpan">Simpan</button>
+        </form>
+        <br> <br>
+        <!-- v-on:submit.prevent => agar halaman tidak dimuat ulang ketika data disubmit. -->
+        <!-- @keyup.enter (shorthand dari v-on:keyup.enter) 
+            => untuk memanggil method simpan ketika tombol Enter ditekan setelah input data di kolom isian -->
+        <!-- v-model =>  untuk two-way data binding dengan property guru yang akan ditambahkan di object data nanti -->
+        <!-- @click => memanggil method simpan -->
+
+        <table border="1" style="border-collapse: collapse" v-if="dataGuru.length > 0">
+            <!-- 1 -->
+            <tr>
+                <thead>
+                    <th style="width: 30px">#</th>
+                    <th style="width: 200px">Nama Guru</th>
+                </thead>
+            </tr>
+            <tr>
+                <tbody v-for="(guru, index) in dataGuru" :key="index">
+                    <!-- 2 -->
+                    <td>{{index+1}}</td>
+                    <td> {{guru}} </td>
+                </tbody>
+            </tr>
+        </table>
+        <h4 v-else>Tidak ada data</h4>
+        <!-- 3 -->
+
+        <!-- 1 v-if menguji kondisi jumlah elemen yang disimpan di dalam array dataGuru.
+                => Jika jumlah lebih dari 0 maka tabel ditampilkan -->
+        <!-- 2 Menampilkan semua isi dari array dataGuru.
+                => Index adalah counter dari v-for dan nilainya ditampilkan sebagai nomor tabel. -->
+	    <!-- 3 Ditampilkan jika kondisi nomor 1 tidak terpenuhi -->
+ 
+    </div>
+    
+</body>
+
+</html>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        methods: {
+           pesan: function() {
+               alert("Selamat Belajar Vue.Js")
+                // property method, dalam property method ada method baru utk memanggil method pesan() 
+                // yg akan menampilkan pesan "selamat..." 
+           },
+           simpan: function() {
+               this.dataGuru.push(this.guru);
+               this.guru = "";
+               //guru : di-bind dgn kolom isian form menggunakan two-way data binding
+               //Input user disimpan di dalam guru kemudian ditambahkan sebagai elemen dari array dataGuru.
+           }
+        },
+        data: {
+            'dataGuru' : [
+                            {'nama' : 'Dewi', 'kelas' : 'XRPL6'},
+                            {'nama' : 'Nurul', 'kelas' : 'XRPL7'},
+                            {'nama' : 'Aini', 'kelas' : 'XIRPL2'},
+                            {'nama' : 'Ihsan', 'kelas' : 'XIRPL7'},
+                            {'nama' : 'Cika', 'kelas' : 'XIIRPL2'},
+                            {'nama' : 'Vina', 'kelas' : 'XIIRPL7'},
+                         ],
+            'guru' : ''
+        }
+    })   
+</script>
